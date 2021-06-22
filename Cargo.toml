@@ -24,7 +24,7 @@ default = []
 frame-trace = []
 
 [dependencies]
-ntex = "0.3.14"
+ntex = {version = "0.3", features = ["rustls"] , git = "https://github.com/BrightOpen/ntex", branch = "master"}
 ntex-amqp-codec = "0.5.1"
 
 bitflags = "1.2"
