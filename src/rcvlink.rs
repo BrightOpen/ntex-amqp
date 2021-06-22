@@ -363,7 +363,7 @@ impl ReceiverLinkBuilder {
         self
     }
 
-    pub fn property(&mut self, name: &str, value: Option<&str>) {
+    pub fn property(mut self, name: &str, value: Option<&str>) -> Self {
         let props = if let Some(ref mut props) = self.frame.properties {
             props
         } else {
@@ -374,6 +374,7 @@ impl ReceiverLinkBuilder {
             Some(value) => props.insert(Symbol::from_slice(name), value.to_owned().into()),
             None => props.remove(&Symbol::from_slice(name)),
         };
+        self
     }
 
     pub async fn open(self) -> Result<ReceiverLink, AmqpProtocolError> {
