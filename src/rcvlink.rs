@@ -363,6 +363,7 @@ impl ReceiverLinkBuilder {
         self
     }
 
+    /// Set or reset a receive link property
     pub fn property(mut self, name: &str, value: Option<&str>) -> Self {
         let props = if let Some(ref mut props) = self.frame.properties {
             props
